@@ -1,5 +1,5 @@
 // TrendDip — pullback-in-uptrend bot for btc-race-24h-20261123-0511 (@syukuran).
-// makefun anchor 2bb76c6394aaf3f958676d867c7b7493ecd5040d round 34206533
+// makefun anchor 70553be3c49604066ffdc87318215251924a9d48 round 34206533
 // (quoted from the hand-made drand-quicknet anchor commit before this file's first write.)
 //
 // Strategy, long-only on CBBTC/USDC, 1-minute bars, full cash per entry:

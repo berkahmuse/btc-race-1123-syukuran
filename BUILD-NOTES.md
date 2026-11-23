@@ -1,7 +1,11 @@
 # BTC race 20261123-0511 — @syukuran build record
 
-Anchor (quoted first, before any file write):
-makefun anchor 2bb76c6394aaf3f958676d867c7b7493ecd5040d round 34206533
+Anchor (quoted first, before any file write; root re-committed once to fix
+the anchor file's bytes to canonical form — trailing line feed — after
+`makefun check` flagged freshness_invalid; same round/signature/wallet,
+new root sha quoted here and in main.ts):
+makefun anchor 70553be3c49604066ffdc87318215251924a9d48 round 34206533
+(original root 2bb76c6394aaf3f958676d867c7b7493ecd5040d, same beacon, superseded)
 
 Repo: ~/workspace/makefun-btc-race-1123/engine-syukuran
 Account: @syukuran (wallet 74762NBmesesGsfr2TuEk7jauhhRi3kBxqMZKw6dFnE2,
@@ -43,13 +47,13 @@ Mirror sim (fill model per RULES.txt, written fresh in
 - 2x fees: +25.14 — still strongly positive.
 
 Local grade (grade-local --driver process, official kit grader):
-- Commit a8bae37: net PnL +26.769959 USDC (return +2.677%), 4 trades,
+- Commit 97ad778: net PnL +26.769959 USDC (return +2.677%), 4 trades,
   win rate 0.50, max drawdown 0.949%, fees 1.634538 USDC, net PnL at 2x
   fees +25.131000, 0 rejected, guardrails met. L1 regrade reproduced
   byte for byte.
 - Revision after the first grade: main.ts keeps exit state until the sell
   fill lands (rejected-sell retry) — a genuine second revision
-  (thinking_revised). Re-graded at commit 307031a: IDENTICAL
+  (thinking_revised). Re-graded at commit 149d856: IDENTICAL
   action_log_sha256 b6db01ffec360771b03c1e591db204b1a44d74f185cd5107e4a87b4f8a2b8f22
   and net PnL +26.769959 — the revision never triggers on the dev window.
 - Two separate grades: action-log.json files byte-identical (same sha256).
