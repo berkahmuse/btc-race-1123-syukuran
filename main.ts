@@ -196,9 +196,11 @@ await runBars({
       if (!exit && retBps <= -STOP_BPS) exit = true;
       if (!exit && fast.value !== null && slow.value !== null && fast.value <= slow.value) exit = true;
       if (exit) {
+        // Do not clear entryPrice/peakClose here: if this sell is rejected
+        // (e.g. max_slippage on a gap bar) the position is still held and
+        // the exit re-fires next bar with its state intact. The fill handler
+        // above clears them when the sell actually fills.
         orders.push({ side: 'sell', symbol: SYMBOL, qty: held.qty, max_slippage_bps: MAX_SLIPPAGE_BPS });
-        entryPrice = null;
-        peakClose = 0;
       }
       return orders;
     }
